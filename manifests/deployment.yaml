@@ -18,7 +18,7 @@ spec:
       containers:
         - name: hello-world-nextjs
           image: >-
-            image-registry.openshift-image-registry.svc:5000/nextjs/hello-world-nextjs@sha256:80e96792b5c63c221505c924925e163c35c6f4a46f1c9b7ddede383df0f2e224
+            quay.io/tonykhbo0/hello-world-nextjs@sha256:80e96792b5c63c221505c924925e163c35c6f4a46f1c9b7ddede383df0f2e224
           ports:
             - containerPort: 8080
               protocol: TCP
