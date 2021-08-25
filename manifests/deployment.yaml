@@ -18,7 +18,7 @@ spec:
       containers:
         - name: hello-world-nextjs
           image: >-
-            quay.io/tonykhbo0/hello-world-nextjs@sha256:7605b86673ba01b1ce416b2b794e59061bce55df89c698e84841132eaaaafa01
+            quay.io/tonykhbo0/hello-world-nextjs@sha256:487ea60d4c27a9f4a9ef867763958628770e0010ecf0f2d0d0b275dfd1c4e269
           ports:
             - containerPort: 8080
               protocol: TCP
