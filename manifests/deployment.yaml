@@ -1,0 +1,40 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hello-world-nextjs
+  labels:
+    app: hello-world-nextjs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-nextjs
+  template:
+    metadata:
+      labels:
+        app: hello-world-nextjs
+        deploymentconfig: hello-world-nextjs
+    spec:
+      containers:
+        - name: hello-world-nextjs
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/nextjs/hello-world-nextjs@sha256:80e96792b5c63c221505c924925e163c35c6f4a46f1c9b7ddede383df0f2e224
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
